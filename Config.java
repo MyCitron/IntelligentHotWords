@@ -21,7 +21,8 @@ public class Config {
     }
 
     public static void setHotWord(List<String> hotWord) {
-        hotWord = hotWord;
+        hotWord.clear();
+        hotWord.addAll(hotWord);
     }
     //endregion
 

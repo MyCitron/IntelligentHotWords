@@ -11,7 +11,8 @@ public class main {
 
 
     public static void  main(String args[]) {
-    String result=IntelligentHotWords.getInstance().nearToneCorrection("");
+        Config.setHotWord(new ArrayList<String>(){{add("《老人与海》");}});
+    String result=IntelligentHotWords.getInstance().nearToneCorrection("我在看老人与海");
     System.out.println(result);
     }
 }

@@ -47,13 +47,6 @@ IntelligenHotWord 是基于纠正语音识别和输入法错误的热词替换�
 clone源代码并编译为一个jar包
 ```
     import IntelligentHotWords.IntelligentHotWords;
-    import IntelligentHotWords.Config;
-    List<String> hotWordList=new ArrayList<String>{
-      {
-        add("《老人与海》");
-      }
-    };
-    Config.setHotWord(hotWordList);
     String result=IntelligentHotWords.getInstance().nearToneCorrection("我在看老人与海");
     System.out.println(result);
 ```

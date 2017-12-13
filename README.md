@@ -48,7 +48,7 @@ clone源代码并编译为一个jar包
 ```
     import IntelligentHotWords.IntelligentHotWords;
     String result=IntelligentHotWords.getInstance().nearToneCorrection("我在看老人与海");
-    System.out.println(result);
+    System.out.println(result);//result:我在看《老人与海》
 ```
 
 ## Setting

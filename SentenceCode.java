@@ -3,7 +3,6 @@
  *
  *    将用户存入的热词和法律库的热词保存在HashMap中
  *
- *    @Model:单例类（getInstance()）
  *    @Author:dengchengchao
  *    @Time:2017-12-11
  *
@@ -12,6 +11,8 @@ import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
 import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
+
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,9 +21,14 @@ class SentenceCode {
 
     /* 自定义关于法律的热词库**/
     private static final Map<String,String> courWordTable=new LinkedHashMap<>();
-    /* 用户传入的用户自定义的热词 **/
-    private static final Map<String,String> userWordTable=new LinkedHashMap<>();
+    /* 用户传入的用户自定义的热词表 **/
+    private   Map<String,String> userWordTable=new LinkedHashMap<>();
 
+    /* 用户自定义的热词*/
+    private   ArrayList<String> userWordList=new ArrayList<>();
+
+    private  boolean isPolyphone=false;
+    private  ApproximateTable approximateTable=new ApproximateTable();
     //定义输出类型，以后可以扩展为音标相同的格式
     private static final HanyuPinyinOutputFormat hanyuPinyinOutputFormat;
     static {
@@ -31,10 +37,7 @@ class SentenceCode {
     }
 
 
-    //region 单例类
-    private static SentenceCode _instance=new SentenceCode();
-    public  static SentenceCode getInstance(){return _instance; }
-    private SentenceCode(){
+    public SentenceCode(){
           loadCourHotWord();
           loadLocalHotWord();
     }
@@ -61,7 +64,7 @@ class SentenceCode {
             //TODO：增加日志处理
         }
         if (rightLetter==null||rightLetter.length<1)return "";
-        return  rightLetter[0];
+        return  Tools.upperFirstLetter(rightLetter[0]);
     }
 
 
@@ -75,7 +78,7 @@ class SentenceCode {
     //region 拼音->编码
     private String phoneticizeConverToHashCode(String phonetic)
     {
-        return ApproximateTable.getInstance().getApproPhoneticTable().get(phonetic);
+        return approximateTable.getApproPhoneticTable().get(phonetic);
     }
     //endregion
 
@@ -117,7 +120,7 @@ class SentenceCode {
     //自带的法律热词
     private void loadCourHotWord(){
        List<String> courWordList=CourHotWord.getHotWordList();
-       loadSentenceToTable(courWordList,courWordTable,Config.isPolyphonySwitch());
+       loadSentenceToTable(courWordList,courWordTable,isPolyphone);
     }
 
     /**
@@ -126,8 +129,7 @@ class SentenceCode {
     public void loadLocalHotWord()
     {
         userWordTable.clear();
-        List<String> userHotWord=Config.getHotWord();
-        loadSentenceToTable(userHotWord,userWordTable,Config.isPolyphonySwitch());
+        loadSentenceToTable(userWordList,userWordTable,isPolyphone);
     }
 
     //将整个热词加载到map中
@@ -167,7 +169,7 @@ class SentenceCode {
      *  重新加载用户设置并重新编码所有热词
      */
     public void reloadFuzzySetting(List<String> fuzzyList){
-       ApproximateTable.getInstance().modifyAllTable(fuzzyList);
+        approximateTable.modifyAllTable(fuzzyList);
        reCodeAllHotWord();
     }
 
@@ -175,4 +177,16 @@ class SentenceCode {
 
     public  Map<String,String> getUserWordTable(){ return userWordTable; }
 
+    public ArrayList<String> getUserWordList() {
+        return userWordList;
+    }
+
+    public void setUserWordList(ArrayList<String> wordList){
+        userWordList.clear();
+        this.userWordList=wordList;
+    }
+
+    public void setPolyphone(boolean isPolyphone){
+        this.isPolyphone=isPolyphone;
+    }
 }

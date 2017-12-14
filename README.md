@@ -34,6 +34,7 @@ IntelligenHotWord 是基于纠正语音识别和输入法错误的热词替换�
 - IntelligentHotWords  热词处理速度只与输入的String长度有关，也就是内部热词只受存储本机上的服务器物理内存限制
 - IntelligentHotWords  使用单例类在启动的时候编码所有热词，并一直存储在内存中，索引速度基本为O(1)
 - IntelligentHotWords  编码为单独的模块，可以重写编码规则（比如同音调才替换）使用不同的场景
+- IntelligentHotWords  采用精准编码，可以忽略标点符号对热词匹配的影响
 
 
 ## TODO

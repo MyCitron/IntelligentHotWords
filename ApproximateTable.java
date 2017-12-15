@@ -2,12 +2,11 @@
  *    传入汉字的拼音，根据Approximate定义的编码规则以及加载的用户编码设置进行编码
  *    返回编码后字符串
  *
- *    @Model:单例类（getInstance()）
  *    @Author:dengchengchao
  *    @Time:2017-12-11
  *
  */
-import javax.tools.Tool;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,15 +15,12 @@ class ApproximateTable {
     /**
      *   获取单例类的实例
      */
-    public  static ApproximateTable getInstance(){
-        return _instance;
-    }
 
     //region 拼音匹配表
     //固定编码顺序，同类型的拼音按length排序
-    private static final String[] initials = { "b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "q", "x", "r", "z", "c", "s", "zh", "ch", "sh", "y", "w" };
+    private static final String[] initials = { "B", "P", "M", "F", "D", "T", "N", "L", "G", "K", "H", "J", "Q", "X", "R", "Z", "C", "S", "Zh", "Ch", "Sh", "Y", "W" };
     private static final String[] syllable = { "a", "o", "e", "i", "u", "v", "ai", "ei", "ui", "ao", "ou", "iu", "ie", "ue", "er", "an", "en", "in", "un", "ang", "eng", "ing", "ong", "ia", "iao", "ian", "iang", "iong", "uo", "ua", "uai", "uan", "uang" };
-    private static final String[] otherPinYin = { "a", "ai", "an", "ang", "o", "ao", "e", "en", "er", "eng", "ou" };
+    private static final String[] otherPinYin = {  "A", "Ai", "An", "Ang", "O", "Ao", "E", "En", "Er", "Eng", "Ou" };
     //声母表
     private static final Map<String, Integer> initialsTable = new LinkedHashMap<>();
     //韵母表
@@ -32,24 +28,24 @@ class ApproximateTable {
     //En,Ai等
     private static final Map<String, Integer> otherTable = new LinkedHashMap<>();
     //正确编码与近似音编码表对应表
-    private static Map<String,String> approPhoneticTable=new LinkedHashMap<>();
+    private  Map<String,String> approPhoneticTable=new LinkedHashMap<>();
     //模糊音矫正编码
     private static final Map<String, String> positiveSimilarTable = new LinkedHashMap<String,String>()
     {
         {
-           put("z", "zh");
-           put("c","ch");
-           put("s","sh");
-           put("l","n");
-           put("f","h");
+           put("Z","Zh");
+           put("C","Ch");
+           put("S","Sh");
+           put("L","N");
+           put("F","H");
            put("an","ang");
            put("en","eng");
            put("in","ing");
-           put("zh","z");
-           put("ch","c");
-           put("sh","s");
-           put("n","l");
-           put("h","f");
+           put("Zh","Z");
+           put("Ch","C");
+           put("Sh","S");
+           put("N","L");
+           put("H","F");
            put("ang","an");
            put("eng","en");
            put("ing","in");
@@ -57,11 +53,23 @@ class ApproximateTable {
         }
     };
 
+    public static ArrayList<String> defaultFuzzyList =new ArrayList<String>(){
+        {
+            add("Z");
+            add("C");
+            add("S");
+            add("L");
+            add("F");
+            add("ang");
+            add("eng");
+            add("ing");
+        };
+    };
+
     //region 初始实例化
-    private static  ApproximateTable _instance=new ApproximateTable();
-    private  ApproximateTable() {
+    public   ApproximateTable() {
         initAllTable();
-        modifyAllTable(Config.getFuzzyOption());
+        modifyAllTable(defaultFuzzyList);
         recodePhoneticizeToApproTable();
     }
     //endregion

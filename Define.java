@@ -16,16 +16,16 @@ public class Define {
     //region 数字读音
     public final static Map<String,String> digitPhoneticize=new LinkedHashMap<String,String>(){
         {
-            put("0","ling");
-            put("1","yi");
-            put("2","er");
-            put("3","san");
-            put("4","si");
-            put("5","wu");
-            put("6","liu");
-            put("7","qi");
-            put("8","ba");
-            put("9","jiu");
+            put("0","Ling");
+            put("1","Yi");
+            put("2","Er");
+            put("3","San");
+            put("4","Si");
+            put("5","Wu");
+            put("6","Liu");
+            put("7","Qi");
+            put("8","Ba");
+            put("9","Jiu");
         }
     };
     //endregion
@@ -33,90 +33,90 @@ public class Define {
     //region 常用拼音多音字表
     public static final Map<String,String> polyphoneTable=new LinkedHashMap<String,String>(){
         {
-            put("阿","e");       //阿胶
-            put("拗","niu");     //执拗
-            put("扒","pa");      //扒手
-            put("剥","bo");      //剥皮
-            put("辟","bi");      //复辟
-            put("扁","pian");    //扁舟
-            put("藏","zang");    //西藏
-            put("差","chai");    //出差
-            put("颤","zhan");    //打颤
-            put("澄","deng");    //澄清
-            put("臭","xiu");     //乳臭未干
-            put("畜","xu");      //畜牧
-            put("伺","ci");      //伺候
-            put("攒","cuan");    //攒动
-            put("大","dai");     //大夫
-            put("单","shan");    //姓单
-            put("提","di");      //提防
-            put("都","dou");     //都行
-            put("给","ji");      //给予
-            put("更","jing");   //三更半夜
-            put("和","huo");    //和稀泥
-            put("会","kuai");   //会计
-            put("奇","ji");     //奇偶
-            put("系","ji");     //系鞋带
-            put("雪","jia");    //雪茄
-            put("角","jue");    //角色
-            put("校","jiao");   //校场
-            put("狼","ji");     //狼藉
-            put("关","qia");    //关卡
-            put("壳","qiao");   //地壳
-            put("俩","liang");  //伎俩
-            put("露","lou");    //露马脚
-            put("绿","lu");     //鸭绿江
-            put("落","la");     //丢三落四
-            put("埋","man");    //埋怨
-            put("秘","bi");     //秘鲁
-            put("模","mu");     //模样
-            put("娜","nuo");    //婀娜多姿
-            put("迫","pai");    //迫击炮
-            put("胖","pan");    //心宽体胖
-            put("刨","bao");    //刨冰
-            put("朴" ,"piao");  //姓朴
-            put("曝" ,"bao");   //曝光
-            put("强","jiang");  //倔强
-            put("卜","bu");      //姓卜
+            put("阿","E");       //阿胶
+            put("拗","Niu");     //执拗
+            put("扒","Pa");      //扒手
+            put("剥","Bo");      //剥皮
+            put("辟","Bi");      //复辟
+            put("扁","Pian");    //扁舟
+            put("藏","Zang");    //西藏
+            put("差","Chai");    //出差
+            put("颤","Zhan");    //打颤
+            put("澄","Deng");    //澄清
+            put("臭","Xiu");     //乳臭未干
+            put("畜","Xu");      //畜牧
+            put("伺","Ci");      //伺候
+            put("攒","Cuan");    //攒动
+            put("大","Dai");     //大夫
+            put("单","Shan");    //姓单
+            put("提","Di");      //提防
+            put("都","Dou");     //都行
+            put("给","Ji");      //给予
+            put("更","Jing");   //三更半夜
+            put("和","Huo");    //和稀泥
+            put("会","Kuai");   //会计
+            put("奇","Ji");     //奇偶
+            put("系","Ji");     //系鞋带
+            put("茄","Jia");    //雪茄
+            put("角","Jue");    //角色
+            put("校","Jiao");   //校场
+            put("狼","Ji");     //狼藉
+            put("关","Qia");    //关卡
+            put("壳","Qiao");   //地壳
+            put("俩","Liang");  //伎俩
+            put("露","Lou");    //露马脚
+            put("绿","Lu");     //鸭绿江
+            put("落","La");     //丢三落四
+            put("埋","Man");    //埋怨
+            put("秘","Bi");     //秘鲁
+            put("模","Mu");     //模样
+            put("娜","Nuo");    //婀娜多姿
+            put("迫","Pai");    //迫击炮
+            put("胖","Pan");    //心宽体胖
+            put("刨","Bao");    //刨冰
+            put("朴" ,"Piao");  //姓朴
+            put("曝" ,"Bao");   //曝光
+            put("强","Jiang");  //倔强
+            put("卜","Bu");      //姓卜
         }
     };
     //endregion
 
     //region 所有的拼音组合
     public final static String [] phoneticizeValue=new String[]{
-            "a","ai","an","ang","ao","ba","bai","ban","bang","bao","bei","ben",
-            "beng","bi","bian","biao","bie","bin","bing","bo","bu","ca","cai","can",
-            "cang","cao","ce","ceng","cha","chai","chan","chang","chao","che","chen","cheng","cen",
-            "chi","chong","chou","chu","chuai","chuan","chuang","chui","chun","chuo","ci","cong",
-            "cou","cu","cuan","cui","cun","cuo","da","dai","dan","dang","dao","de",
-            "deng","di","dian","diao","die","ding","diu","dong","dou","du","duan","dui",
-            "dun","duo","e","en","er","fa","fan","fang","fei","fen","feng","fo",
-            "fou","fu","ga","gai","gan","gang","gao","ge","gei","gen","geng","gong",
-            "gou","gu","gua","guai","guan","guang","gui","gun","guo","ha","hai","han",
-            "hang","hao","he","hei","hen","heng","hong","hou","hu","hua","huai","huan",
-            "huang","hui","hun","huo","ji","jia","jian","jiang","jiao","jie","jin","jing",
-            "jiong","jiu","ju","juan","jue","jun","ka","kai","kan","kang","kao","ke",
-            "ken","keng","kong","kou","ku","kua","kuai","kuan","kuang","kui","kun","kuo",
-            "la","lai","lan","lang","lao","le","lei","leng","li","lia","lian","liang",
-            "liao","lie","lin","ling","liu","long","lou","lu","lv","luan","lue","lun","luo",
-            "ma","mai","man","mang","mao","me","mei","men","meng","mi","mian",
-            "miao","mie","min","ming","miu","mo","mou","mu","na","nai","nan","nang",
-            "nao","ne","nei","nen","neng","ni","nian","niang","niao","nie","nin","ning",
-            "niu","nong","nu","nv","nuan","nue","nuo","o","ou","pa","pai","pan",
-            "pang","pao","pei","pen","peng","pi","pian","piao","pie","pin","ping","po",
-            "pu","qi","qia","qian","qiang","qiao","qie","qin","qing","qiong","qiu","qu",
-            "quan","que","qun","ran","rang","rao","re","ren","reng","ri","rong","rou",
-            "ru","ruan","rui","run","ruo","sa","sai","san","sang","sao","se","sen",
-            "seng","sha","shai","shan","shang","shao","she","shen","sheng","shi","shou","shu",
-            "shua","shuai","shuan","shuang","shui","shun","shuo","si","song","sou","su","suan",
-            "sui","sun","suo","ta","tai","tan","tang","tao","te","teng","ti","tian",
-            "tiao","tie","ting","tong","tou","tu","tuan","tui","tun","tuo","wa","wai",
-            "wan","wang","wei","wen","weng","wo","wu","xi","xia","xian","xiang","xiao",
-            "xie","xin","xing","xiong","xiu","xu","xuan","xue","xun","ya","yan","yang",
-            "yao","ye","yi","yin","ying","yo","yong","you","yu","yuan","yue","yun",
-            "za", "zai","zan","zang","zao","ze","zei","zen","zeng","zha","zhai","zhan",
-            "zhang","zhao","zhe","zhen","zheng","zhi","zhong","zhou","zhu","zhua","zhuai","zhuan",
-            "zhuang","zhui","zhun","zhuo","zi","zong","zou","zu","zuan","zui","zun","zuo"
+            "A","Ai","An","Ang","Ao","Ba","Bai","Ban","Bang","Bao","Bei","Ben",
+            "Beng","Bi","Bian","Biao","Bie","Bin","Bing","Bo","Bu","Ca","Cai","Can",
+            "Cang","Cao","Ce","Ceng","Cha","Chai","Chan","Chang","Chao","Che","Chen","Cheng","Cen",
+            "Chi","Chong","Chou","Chu","Chuai","Chuan","Chuang","Chui","Chun","Chuo","Ci","Cong",
+            "Cou","Cu","Cuan","Cui","Cun","Cuo","Da","Dai","Dan","Dang","Dao","De",
+            "Deng","Di","Dian","Diao","Die","Ding","Diu","Dong","Dou","Du","Duan","Dui",
+            "Dun","Duo","E","En","Er","Fa","Fan","Fang","Fei","Fen","Feng","Fo",
+            "Fou","Fu","Ga","Gai","Gan","Gang","Gao","Ge","Gei","Gen","Geng","Gong",
+            "Gou","Gu","Gua","Guai","Guan","Guang","Gui","Gun","Guo","Ha","Hai","Han",
+            "Hang","Hao","He","Hei","Hen","Heng","Hong","Hou","Hu","Hua","Huai","Huan",
+            "Huang","Hui","Hun","Huo","Ji","Jia","Jian","Jiang","Jiao","Jie","Jin","Jing",
+            "Jiong","Jiu","Ju","Juan","Jue","Jun","Ka","Kai","Kan","Kang","Kao","Ke",
+            "Ken","Keng","Kong","Kou","Ku","Kua","Kuai","Kuan","Kuang","Kui","Kun","Kuo",
+            "La","Lai","Lan","Lang","Lao","Le","Lei","Leng","Li","Lia","Lian","Liang",
+            "Liao","Lie","Lin","Ling","Liu","Long","Lou","Lu","Lv","Luan","Lue","Lun","Luo",
+            "Ma","Mai","Man","Mang","Mao","Me","Mei","Men","Meng","Mi","Mian",
+            "Miao","Mie","Min","Ming","Miu","Mo","Mou","Mu","Na","Nai","Nan","Nang",
+            "Nao","Ne","Nei","Nen","Neng","Ni","Nian","Niang","Niao","Nie","Nin","Ning",
+            "Niu","Nong","Nu","Nv","Nuan","Nue","Nuo","O","Ou","Pa","Pai","Pan",
+            "Pang","Pao","Pei","Pen","Peng","Pi","Pian","Piao","Pie","Pin","Ping","Po",
+            "Pu","Qi","Qia","Qian","Qiang","Qiao","Qie","Qin","Qing","Qiong","Qiu","Qu",
+            "Quan","Que","Qun","Ran","Rang","Rao","Re","Ren","Reng","Ri","Rong","Rou",
+            "Ru","Ruan","Rui","Run","Ruo","Sa","Sai","San","Sang","Sao","Se","Sen",
+            "Seng","Sha","Shai","Shan","Shang","Shao","She","Shen","Sheng","Shi","Shou","Shu",
+            "Shua","Shuai","Shuan","Shuang","Shui","Shun","Shuo","Si","Song","Sou","Su","Suan",
+            "Sui","Sun","Suo","Ta","Tai","Tan","Tang","Tao","Te","Teng","Ti","Tian",
+            "Tiao","Tie","Ting","Tong","Tou","Tu","Tuan","Tui","Tun","Tuo","Wa","Wai",
+            "Wan","Wang","Wei","Wen","Weng","Wo","Wu","Xi","Xia","Xian","Xiang","Xiao",
+            "Xie","Xin","Xing","Xiong","Xiu","Xu","Xuan","Xue","Xun","Ya","Yan","Yang",
+            "Yao","Ye","Yi","Yin","Ying","Yo","Yong","You","Yu","Yuan","Yue","Yun",
+            "Za", "Zai","Zan","Zang","Zao","Ze","Zei","Zen","Zeng","Zha","Zhai","Zhan",
+            "Zhang","Zhao","Zhe","Zhen","Zheng","Zhi","Zhong","Zhou","Zhu","Zhua","Zhuai","Zhuan",
+            "Zhuang","Zhui","Zhun","Zhuo","Zi","Zong","Zou","Zu","Zuan","Zui","Zun","Zuo"
     };
     //endregion
 

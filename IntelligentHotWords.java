@@ -18,6 +18,7 @@ public class IntelligentHotWords {
     /** 保存所有的热词 */
     private  Map<String, String> totalHotWordMap = new LinkedHashMap<>();
     private  SentenceCode codeObj =new SentenceCode();
+    private  static  final  int __CODE__LENGTH__=5;
 
 //    private static IntelligentHotWords instance = new IntelligentHotWords();
 //
@@ -106,7 +107,7 @@ public class IntelligentHotWords {
     public String nearToneCorrection(String sentence) {
         String surplusSentence = sentence;
         String sentenceCode = codeObj.sentenceConvertToNormalCode(sentence);
-        Map<String, String> sentenceItem = getMatchWordMap(totalHotWordMap, sentenceCode);
+        Map<String, String> sentenceItem = getMatchWordMapByForeach(totalHotWordMap, sentenceCode);
         increaseBookTitleWeight(sentenceItem);
         for (Map.Entry<String, String> entry : sentenceItem.entrySet()) {
             String handledSentence = "";
@@ -149,6 +150,21 @@ public class IntelligentHotWords {
         for (Map.Entry<String, String> entry : hotWordMap.entrySet()) {
             if (sentenceCode.contains(entry.getKey()) && !resultMap.containsKey(entry.getKey())) {
                 resultMap.put(entry.getKey(), entry.getValue());
+            }
+        }
+        return resultMap;
+    }
+
+    private Map<String,String> getMatchWordMapByForeach(Map<String,String>hotwordMap,String sentenceCode){
+        Map<String, String> resultMap = new LinkedHashMap<>();
+        int charCount=1;
+        if (sentenceCode.length()/__CODE__LENGTH__<charCount)return resultMap;
+        while (++charCount!=sentenceCode.length()) {
+            for (int i = 0; i*__CODE__LENGTH__ <= sentenceCode.length() - charCount*__CODE__LENGTH__; i++) {
+                String key = sentenceCode.substring(i*__CODE__LENGTH__, i*__CODE__LENGTH__+charCount*__CODE__LENGTH__);
+                if (hotwordMap.containsKey(key)) {
+                    resultMap.put(key, hotwordMap.get(key));
+                }
             }
         }
         return resultMap;
@@ -205,6 +221,8 @@ public class IntelligentHotWords {
         String tempSentence = sentence.replace(hotword, "");
         return (sentence.length() - tempSentence.length()) / hotword.length();
     }
+
+
 
 
     /**

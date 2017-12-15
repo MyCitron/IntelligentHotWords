@@ -23,7 +23,7 @@ public class main {
         IntelligentHotWords ill = new IntelligentHotWords();
         long startTime = System.currentTimeMillis();
         ill.setUserHotWord(arr1);
-        String result = ill.nearToneCorrection("中华人民共和国合同法");
+        String result = ill.nearToneCorrection("我在这里看啊那是啊这个是不是队长啊爱的中华人民共和国刑法");
         long endTime = System.currentTimeMillis();
         System.out.println(result);
         System.out.println("程序运行时间：" + (endTime - startTime) + "ms");    //输出程序运行时间

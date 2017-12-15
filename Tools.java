@@ -99,6 +99,6 @@ class Tools {
      */
     public  static String upperFirstLetter(String letter){
         if (isNullorEmpty(letter)) return "";
-         return letter.replace(letter.substring(0, 1), letter.substring(0, 1).toUpperCase());
+         return letter.replaceFirst(letter.substring(0, 1), letter.substring(0, 1).toUpperCase());
     }
 }

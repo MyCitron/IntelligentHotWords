@@ -32,7 +32,7 @@ IntelligenHotWord 是基于纠正语音识别和输入法错误的热词替换�
 
 - IntelligentHotWords  主要存储使用HashMap，10条热词处理<100ms
 - IntelligentHotWords  热词处理速度只与输入的String长度有关，也就是内部热词只受存储本机上的服务器物理内存限制
-- IntelligentHotWords  使用单例类在启动的时候编码所有热词，并一直存储在内存中，索引速度基本为O(1)
+- IntelligentHotWords  启动时预加载编码所有热词，并一直存储在内存中，索引速度基本为O(1)
 - IntelligentHotWords  编码为单独的模块，可以重写编码规则（比如同音调才替换）使用不同的场景
 - IntelligentHotWords  采用精准编码，可以忽略标点符号对热词匹配的影响
 
@@ -46,17 +46,26 @@ IntelligenHotWord 是基于纠正语音识别和输入法错误的热词替换�
 ## Getting Started
 - 依赖pinyin4j库
 clone源代码并编译为一个jar包
+Maven地址：
+```
+<!-- https://mvnrepository.com/artifact/com.belerweb/pinyin4j -->
+<dependency>
+    <groupId>com.belerweb</groupId>
+    <artifactId>pinyin4j</artifactId>
+    <version>2.5.0</version>
+</dependency>
+```
+### java code:
 ```
     import IntelligentHotWords.IntelligentHotWords;
-    String result=IntelligentHotWords.getInstance().nearToneCorrection("我在看老人与海");
+    IntelligentHotWords ill=new IntelligentHotWords();
+    ill.setUserHotWord(new ArrayList<String>(){{add("《老人与海》")}});
+    String result= ill.nearToneCorrection("我在看老人与海");
     System.out.println(result);//result:我在看《老人与海》
 ```
+    你也可以在
+    ```
+    IntelligentHotWords\src\mian.java
+    ```
+    目录下直接运行测试
 
-## Setting
-
- 配置在Config.java中
- ```
- setPolyphonySwitch(bool b);         //是否开启多音字
- setFuzzyOption(List<String> fuzzy); //模糊音匹配表 
- setHotWord(List<String> hotWord);   //热词列表
- ```

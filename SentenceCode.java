@@ -20,7 +20,7 @@ import java.util.Map;
 class SentenceCode {
 
     /* 自定义关于法律的热词库**/
-    private static final Map<String,String> courWordTable=new LinkedHashMap<>();
+    private   Map<String,String> courWordTable=new LinkedHashMap<>();
     /* 用户传入的用户自定义的热词表 **/
     private   Map<String,String> userWordTable=new LinkedHashMap<>();
 

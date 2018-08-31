@@ -29,7 +29,7 @@ public class IntelligentHotWords {
     public IntelligentHotWords() {
 
         recodeHotWord(ApproximateTable.defaultFuzzyList);
-        mergeUserWordAndCourWord();
+        //mergeUserWordAndCourWord();
     }
 
 
